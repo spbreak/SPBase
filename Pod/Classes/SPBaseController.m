@@ -38,7 +38,8 @@
 
 #pragma mark - Public
 - (void)leftBarForImageName:(NSString *)str{
-    UIBarButtonItem *bar=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:str] style:UIBarButtonItemStyleDone target:self action:@selector(p_back)];
+    UIImage *image = [[UIImage imageNamed:str] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *bar=[[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(p_back)];
     if(([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0?20:0)){
         UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
                                            initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
@@ -52,7 +53,8 @@
 
 - (void)rightBarForImageName:(NSString *)str withFinishBlock:(SPBRightBarFinishBlock)finishBlock{
     self.rightBarFinishBlock = finishBlock;
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:str] style:UIBarButtonItemStyleDone target:self action:@selector(p_rightBarAction)];
+    UIImage *image = [[UIImage imageNamed:str] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(p_rightBarAction)];
 }
 
 #pragma makr - Private
