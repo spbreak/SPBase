@@ -1,0 +1,14 @@
+PODS:
+  - SPBase (0.1.0)
+
+DEPENDENCIES:
+  - SPBase (from `../`)
+
+EXTERNAL SOURCES:
+  SPBase:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SPBase: d537d1d6fb56b8d85c88069a3c77a72c68bad250
+
+COCOAPODS: 0.39.0

@@ -1,0 +1,25 @@
+{
+  "name": "SPBase",
+  "version": "0.1.0",
+  "summary": "通用父类SPBase.",
+  "description": "0.1.0 : 基类控制器",
+  "homepage": "https://github.com/spbreak/SPBase",
+  "license": "MIT",
+  "authors": {
+    "spbreak": "527108411@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/spbreak/SPBase.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "SPBase": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

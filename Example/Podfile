@@ -1,5 +1,4 @@
 source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
 
 target 'SPBase_Example', :exclusive => true do
   pod 'SPBase', :path => '../'
@@ -7,6 +6,4 @@ end
 
 target 'SPBase_Tests', :exclusive => true do
   pod 'SPBase', :path => '../'
-
-  pod 'FBSnapshotTestCase'
 end
