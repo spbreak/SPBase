@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SPBase"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "通用父类SPBase."
 
 # This description is used to generate tags and improve search results.
@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
   0.1.0 : 基类控制器
+0.3.0 : 添加自定义 leftBar 回调方法
                        DESC
 
   s.homepage         = "https://github.com/spbreak/SPBase"

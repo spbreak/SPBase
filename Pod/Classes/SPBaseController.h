@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^SPBRightBarFinishBlock)();
+typedef void(^SPBBarFinishBlock)();
 
 @interface SPBaseController : UIViewController
 
-- (void)leftBarForImageName:(NSString *)str;
-- (void)rightBarForImageName:(NSString *)str withFinishBlock:(SPBRightBarFinishBlock)finishBlock;
+- (void)leftBarForImageName:(NSString *)str withFinishBlock:(SPBBarFinishBlock)finishBlock;
+- (void)rightBarForImageName:(NSString *)str withFinishBlock:(SPBBarFinishBlock)finishBlock;
 
 @end

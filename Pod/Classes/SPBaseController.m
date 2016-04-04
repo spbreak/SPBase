@@ -10,7 +10,8 @@
 
 @interface SPBaseController () <UIGestureRecognizerDelegate>
 
-@property (nonatomic, copy) SPBRightBarFinishBlock rightBarFinishBlock;
+@property (nonatomic, copy) SPBBarFinishBlock rightBarFinishBlock;
+@property (nonatomic, copy) SPBBarFinishBlock leftBarFinishBlock;
 
 @end
 
@@ -37,9 +38,10 @@
 }
 
 #pragma mark - Public
-- (void)leftBarForImageName:(NSString *)str{
+- (void)leftBarForImageName:(NSString *)str withFinishBlock:(SPBBarFinishBlock)finishBlock{
+    self.leftBarFinishBlock = finishBlock;
     UIImage *image = [[UIImage imageNamed:str] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem *bar=[[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(p_back)];
+    UIBarButtonItem *bar=[[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(p_leftBarAction)];
     if(([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0?20:0)){
         UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
                                            initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
@@ -51,13 +53,21 @@
     }
 }
 
-- (void)rightBarForImageName:(NSString *)str withFinishBlock:(SPBRightBarFinishBlock)finishBlock{
+- (void)rightBarForImageName:(NSString *)str withFinishBlock:(SPBBarFinishBlock)finishBlock{
     self.rightBarFinishBlock = finishBlock;
     UIImage *image = [[UIImage imageNamed:str] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(p_rightBarAction)];
 }
 
 #pragma makr - Private
+- (void)p_leftBarAction{
+    if (_leftBarFinishBlock) {
+        _leftBarFinishBlock();
+    }else{
+        [self p_back];
+    }
+}
+
 -(void)p_back{
     [self.navigationController popViewControllerAnimated:YES];
 }

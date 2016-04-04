@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
 //    
-    [self leftBarForImageName:@"left"];
+    [self leftBarForImageName:@"left" withFinishBlock:nil];
     
     UIView *view = [UIView new];
     self.color = view;
